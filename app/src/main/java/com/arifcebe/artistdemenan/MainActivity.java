@@ -1,15 +1,28 @@
 package com.arifcebe.artistdemenan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+import com.arifcebe.artistdemenan.view.JSonArrayActivity;
+import com.arifcebe.artistdemenan.view.JSonObjectActivity;
+import com.arifcebe.artistdemenan.view.ListArtistActivity;
+
+public class MainActivity extends AppCompatActivity
+    implements AdapterView.OnItemClickListener{
+
+    private ListView lv;
+    private String[] listMenu;
+    private ArrayAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        listMenu = new String[]{"sample json array","sample json object",
+            "sample json array and objecy"};
+        adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,listMenu);
+        lv = (ListView) findViewById(R.id.listview);
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener(this);
+
     }
 
     @Override
@@ -48,5 +69,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (position){
+            case 0:
+                startActivity(new Intent(this, JSonArrayActivity.class));
+                break;
+            case 1:
+                startActivity(new Intent(this, JSonObjectActivity.class));
+                break;
+            case 2:
+                startActivity(new Intent(this, ListArtistActivity.class));
+                break;
+        }
     }
 }
