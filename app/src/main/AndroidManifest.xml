@@ -2,15 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.arifcebe.artistdemenan">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".config.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".config.BaseApplication">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -23,7 +23,8 @@
         </activity>
         <activity android:name=".view.JSonArrayActivity" />
         <activity android:name=".view.JSonObjectActivity" />
-        <activity android:name=".view.ListArtistActivity"></activity>
+        <activity android:name=".view.ListArtistActivity" />
+        <activity android:name=".view.UploadImageActivity"></activity>
     </application>
 
 </manifest>

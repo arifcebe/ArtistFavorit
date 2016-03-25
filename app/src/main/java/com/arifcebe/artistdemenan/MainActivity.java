@@ -16,6 +16,7 @@ import android.widget.ListView;
 import com.arifcebe.artistdemenan.view.JSonArrayActivity;
 import com.arifcebe.artistdemenan.view.JSonObjectActivity;
 import com.arifcebe.artistdemenan.view.ListArtistActivity;
+import com.arifcebe.artistdemenan.view.UploadImageActivity;
 
 public class MainActivity extends AppCompatActivity
     implements AdapterView.OnItemClickListener{
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         listMenu = new String[]{"sample json array","sample json object",
-            "sample json array and objecy"};
+            "sample json array and objecy","Upload image"};
         adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,listMenu);
         lv = (ListView) findViewById(R.id.listview);
         lv.setAdapter(adapter);
@@ -82,6 +83,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case 2:
                 startActivity(new Intent(this, ListArtistActivity.class));
+                break;
+            case 3:
+                startActivity(new Intent(this, UploadImageActivity.class));
                 break;
         }
     }
