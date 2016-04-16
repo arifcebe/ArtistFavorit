@@ -24,7 +24,8 @@
         <activity android:name=".view.JSonArrayActivity" />
         <activity android:name=".view.JSonObjectActivity" />
         <activity android:name=".view.ListArtistActivity" />
-        <activity android:name=".view.UploadImageActivity"></activity>
+        <activity android:name=".view.UploadImageActivity" />
+        <activity android:name=".view.LoginActivity" />
     </application>
 
 </manifest>
